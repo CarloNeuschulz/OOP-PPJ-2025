@@ -1,0 +1,84 @@
+*** Update File: banking/account/BankCustomer.java
+@@
+-public class BankCustomer implements Customer {
+-    // TODO:
++public class BankCustomer implements Customer {
++    private String firstname;
++    private String lastname;
++    private String birthday;
++    private String address;
++    private int customerNumber;
+@@
+-    public BankCustomer(String firstname, String lastname, String birthday, String address) {
+-        // TODO:
++    public BankCustomer(String firstname, String lastname, String birthday, String address) {
++        this.firstname = firstname;
++        this.lastname = lastname;
++        this.birthday = birthday;
++        this.address = address;
+     }
+ 
+     public String getLastname() {
+-        // TODO:
+-        return null;
++        return lastname;
+     }
+ 
+     public int getCustomerNumber() {
+-        // TODO:
+-        return 0;
++        return customerNumber;
+     }
+@@
+-    public String getName() {
+-        // TODO:
+-        return null;
++    public String getName() {
++        return firstname;
+     }
+@@
+-    public String getBirthday() {
+-        // TODO:
+-        return null;
++    public String getBirthday() {
++        return birthday;
+     }
+@@
+-    public String getAddress() {
+-        // TODO:
+-        return null;
++    public String getAddress() {
++        return address;
+     }
+@@
+-    public void setCustomerNumber(int customerNumber) {
+-        // TODO:
++    public void setCustomerNumber(int customerNumber) {
++        this.customerNumber = customerNumber;
+     }
+@@
+-    public void setLastname(String lastname) {
+-        // TODO:
++    public void setLastname(String lastname) {
++        this.lastname = lastname;
+     }
+@@
+-    public void setName(String name) {
+-        // TODO:
++    public void setName(String name) {
++        this.firstname = name;
+     }
+@@
+-    public void setBirthday(String birthday) {
+-        // TODO:
++    public void setBirthday(String birthday) {
++        this.birthday = birthday;
+     }
+@@
+-    public void setAddress(String address) {
+-        // TODO:
++    public void setAddress(String address) {
++        this.address = address;
+     }
+ }
+*** End Patch
