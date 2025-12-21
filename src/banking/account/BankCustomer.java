@@ -9,9 +9,9 @@ public class BankCustomer implements Customer {
 
     private String firstname; 
     private String lastname; 
-    private String birthday; 
-    private String adress;
-    private int getCustomerNumber;
+    private  String birthday; 
+    private String address;
+    private int customerNumber;
 
     /**
      * Constructor to create a finance.banking.account.BankCustomer.
@@ -26,7 +26,8 @@ public class BankCustomer implements Customer {
         this.firstname = firstname;
         this.lastname = lastname;
         this.birthday = birthday;
-        this.adress = adress;
+        this.address = address;
+        this.customerNumber = 0; // set by default until the bank or the customer changes his account number 
     }
 
     /**
@@ -34,6 +35,7 @@ public class BankCustomer implements Customer {
      * 
      * @return the last name of this customer
      */
+    @Override
     public String getLastname() {
         // TODO:
         return lastname;
@@ -44,9 +46,10 @@ public class BankCustomer implements Customer {
      * 
      * @return the Customer-Number of this customer
      */
+    @Override
     public int getCustomerNumber() {
         // TODO:
-        return getCustomerNumber;
+        return customerNumber;
     }
 
     /**
@@ -76,17 +79,22 @@ public class BankCustomer implements Customer {
      */
     public String getAddress() {
         // TODO:
-        return adress;
+        return address;
     }
 
     /**
      * Sets the customer number for this customer
      *
      * @param customerNumber the new customer number
+     * @exception String s tells the user to use a valid customer number
      */
     public void setCustomerNumber(int customerNumber) {
         // TODO:
-        this.getCustomerNumber = customerNumber;
+        if (customerNumber < 0) { // the customer number shall never be null or negeativ 
+            throw new IllegalArgumentException("<customerNumber> shall not be negativ or null");
+        }
+
+        this.customerNumber = customerNumber;
     }
 
     /**
@@ -116,6 +124,7 @@ public class BankCustomer implements Customer {
      */
     public void setBirthday(String birthday) {
         // TODO:
+        this.birthday = birthday;
     }
 
     /**
@@ -125,5 +134,6 @@ public class BankCustomer implements Customer {
      */
     public void setAddress(String address) {
         // TODO:
+        this.address = address; 
     }
 }
