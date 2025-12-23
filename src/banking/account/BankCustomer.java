@@ -2,6 +2,8 @@ package banking.account;
 
 /**
  * This class implements a simple bank customer.
+ *  It uses various Parameters like @param name @param lastname @param birthday @param adress @param customerNumber
+ *  So that the customer may change his banking information using various methodes 
  *
  */
 public class BankCustomer implements Customer {
