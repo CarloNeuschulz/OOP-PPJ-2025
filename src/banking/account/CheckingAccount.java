@@ -1,4 +1,5 @@
 package banking.account;
+// Girokonto
 
 /**
  * This class models a check account implementing banking.accounts.BankAccount.
@@ -6,8 +7,11 @@ package banking.account;
  * @see BaseBankAccount
  *
  */
-public class CheckingAccount implements BankAccount {
+public class CheckingAccount implements BankAccount, Customer {
     // TODO:
+    private int accountNumber;
+    private Customer owner; 
+    private int pin;
 
     /**
      * Creates a new checking bank account for the given customer.
@@ -18,12 +22,15 @@ public class CheckingAccount implements BankAccount {
      */
     public CheckingAccount(int accountNumber, Customer owner, int pin) {
         // TODO:
+        this.accountNumber = accountNumber;
+        this.owner = owner;
+        this.pin = pin;
     }
 
     @Override
     public final AccountType getAccountType() {
         // TODO:
-        return null;
+        if ()
     }
 
     @Override
