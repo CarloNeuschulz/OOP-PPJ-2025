@@ -1,17 +1,18 @@
 package banking.account;
 // Girokonto
 
+import static banking.account.BankAccount.AccountType; // Importiert irgendwie die Art des Kontos von BankAccount
+
 /**
  * This class models a check account implementing banking.accounts.BankAccount.
  *
  * @see BaseBankAccount
  *
  */
-public class CheckingAccount implements BankAccount, Customer {
+public class CheckingAccount implements BankAccount {
     // TODO:
-    private int accountNumber;
-    private Customer owner; 
-    private int pin;
+
+    private final BaseBankAccount baseBankAccount;
 
     /**
      * Creates a new checking bank account for the given customer.
@@ -22,20 +23,22 @@ public class CheckingAccount implements BankAccount, Customer {
      */
     public CheckingAccount(int accountNumber, Customer owner, int pin) {
         // TODO:
-        this.accountNumber = accountNumber;
-        this.owner = owner;
-        this.pin = pin;
+        this.baseBankAccount = new BaseBankAccount(accountNumber, owner, pin);
     }
 
     @Override
     public final AccountType getAccountType() {
         // TODO:
-        if ()
+        return AccountType.Checking;
     }
 
     @Override
     public final void closeAccount() {
         // TODO:
+        double balance =  baseBankAccount.getBalance();
+        if (balance > 0) {
+            baseBankAccount.withdrawMoney(balance);
+        }
     }
 
     @Override
