@@ -3,8 +3,13 @@ package banking.account;
 /**
  * This class models a base account implementing basics in a Bank Account.
  */
-public class BaseBankAccount {
+public class BaseBankAccount implements Customer{
     // TODO:
+
+    private int accountNumber;
+    private int pin;
+    private Customer owner;
+
     /**
      * Creates a new base bank account for the given customer.
      *
@@ -14,6 +19,10 @@ public class BaseBankAccount {
      */
     public BaseBankAccount(int accountNumber, Customer owner, int pin){
         // TODO:
+
+        this.accountNumber = accountNumber;
+        this.pin = pin;
+        this.owner = owner;
     }
 
     /**
@@ -23,7 +32,12 @@ public class BaseBankAccount {
      */
     public final boolean validatePin(int pin) {
         // TODO:
-        return false;
+
+        if (this.pin == pin) {
+            return true;
+        } else {
+            return false;
+        }
     }
 
     /**
@@ -31,9 +45,10 @@ public class BaseBankAccount {
      *
      * @return the owner of this account
      */
+    @Override
     public Customer getOwner() {
         // TODO:
-        return null;
+        return owner;
     }
 
     /**
@@ -43,7 +58,7 @@ public class BaseBankAccount {
      */
     public final int getAccountNumber() {
         // TODO:
-        return 0;
+        return accountNumber;
     }
 
     /**
