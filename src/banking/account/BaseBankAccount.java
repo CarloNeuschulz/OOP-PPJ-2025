@@ -3,12 +3,14 @@ package banking.account;
 /**
  * This class models a base account implementing basics in a Bank Account.
  */
-public class BaseBankAccount implements Customer{
+public class BaseBankAccount implements Customer, BankAccount{
     // TODO:
 
     private int accountNumber;
     private int pin;
     private Customer owner;
+    private BankAccount balance;
+
 
     /**
      * Creates a new base bank account for the given customer.
@@ -65,18 +67,24 @@ public class BaseBankAccount implements Customer{
      * Returns the current balance of this account.
      * @return the current balance of this account
      */
+    @Override
     public final double getBalance() {
         // TODO:
-        return 0;
+        return balance; // vielleicht muss man hier balance.getBalance() benutzen, da es ja eine implementierte Methode von Interface BankAccount ist
     }
 
     /**
      * This method removes money from this account.
      * This is only valid for positive numbers and if money <= balance.
      * @param money a positive amount of money
+     * @return balance the current balance after withdrawal
      */
+    @Override
     public void withdrawMoney(double money) {
         // TODO:
+        if (money <= balance.getBalance() && money > 0) {
+            balance -= money;
+        }
     }
 
     /**
@@ -86,5 +94,8 @@ public class BaseBankAccount implements Customer{
      */
     public final void depositMoney(double money) {
         // TODO:
+        if (money > 0) {
+            balance += money;
+        }
     }
 }
